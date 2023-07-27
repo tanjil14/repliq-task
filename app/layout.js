@@ -15,8 +15,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <UserProvider>
         <CartProvider>
-          <Navbar/>
-          <body className={inter.className}>{children}</body>
+         <body className={inter.className}>
+            <Navbar />
+            {children}
+          </body>
         </CartProvider>
       </UserProvider>
     </html>
