@@ -1,8 +1,8 @@
 "use client";
 import ProductCard from "@/components/ProductCard";
 import { useUserContext } from "@/context/userContext";
-import { useRouter } from "next/navigation";
 import products from "@/utils/products";
+import { useRouter } from "next/navigation";
 const page = () => {
   const router = useRouter();
   const { loggedInUser } = useUserContext();
@@ -11,9 +11,9 @@ const page = () => {
   }
   if (loggedInUser) {
     return (
-      <div className="py-16 flex flex-row">
-      
-          <div className="col-span-1">
+      <div className="py-16">
+        <div className="productWrapper  mx-auto grid gap-8 px-6">
+          <div className="productContainer grid gap-6">
             {products.length > 0 ? (
               products.map((product) => (
                 <ProductCard key={product.id} product={product} />
@@ -27,6 +27,7 @@ const page = () => {
             )}
           </div>
         </div>
+      </div>
     );
   }
 };

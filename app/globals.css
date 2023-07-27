@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 1280px) {
+  .cartListContainer {
+    grid-template-columns: auto 400px;
+  }
+}
+
+
+@media (min-width: 1536px) {
+  .productWrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .productContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .productContainer { 
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

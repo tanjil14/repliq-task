@@ -1,43 +1,25 @@
 // import { useDispatch, useSelector } from "react-redux";
 
 import { useCartContext } from "@/context/cartContext";
+import Image from "next/image";
 
 const ProductCard = ({ product }) => {
   const {
     state: { cart },
     dispatch,
   } = useCartContext();
-  console.log(cart);
-
-  const handleAddToCart = () => {
-    if (product.productQuantity === 0) return;
-    const isAlreadyAdded = cart.find((item) => item.id === product.id);
-    dispatch({
-      type: "INCREMENTQUANTITY",
-      payload: product.id,
-    });
-    if (isAlreadyAdded) {
-      dispatch({
-        type: "INCREMENTQUANTITY",
-        payload: {
-          id: product.id,
-          qty: 5,
-        },
-      });
-    } else {
-      dispatch({
-        type: "ADDTOCART",
-        payload: product,
-      });
-    }
-  };
   return (
-    <div className="max-w-350 rounded-md border border-gray-300">
-      <img
-        className="mx-auto h-full w-full object-cover object-center p-4"
+    <div className="max-w-[350px] rounded-md border border-gray-300">
+      <Image
+        className=""
         src={product.image}
         alt="product"
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{ width: "100%", height: "350px",objectFit:"cover" }}
       />
+
       <div className="p-4 space-y-2">
         <h4 className="font-semibold">{product.productName}</h4>
         <p className="text-sm leading-5 text-blue-gray-600">
@@ -47,7 +29,6 @@ const ProductCard = ({ product }) => {
           <p className="font-bold">
             BDT <span className="font-bold">{product.price}</span>
           </p>
-        
         </div>
         {cart?.some((p) => p.id === product.id) ? (
           <button
