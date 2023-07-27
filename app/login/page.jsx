@@ -27,8 +27,8 @@ const page = () => {
   return (
     <section>
       <div className="h-screen flex flex-col sm:flex-row justify-center">
-        <div className="flex w-full sm:w-2/5 justify-center items-center">
-          <div className="w-full ">
+        <div className="flex w-full sm:w-2/4 md:w-2/5 justify-around items-center -mt-2 sm:mt-0">
+          <div className="w-full xl:w-3/5 px-10 sm:px-6 xl:px-0">
             <h5 className="text-2xl font-semibold mb-4">Lets Sign You In</h5>
             <p className="text-base font-medium mb-10">
               Don’t have an account?{" "}

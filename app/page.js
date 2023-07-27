@@ -10,7 +10,6 @@ export default function Home() {
      <div class="md:w-1/2">
       <Image src="/hero-img.svg" width={700} height={700}
       alt="hero"/>
-        {/* <img src="./images/hero-img.svg" class="w-full" /> */}
       </div>
     </div>
   );
