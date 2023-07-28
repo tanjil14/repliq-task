@@ -29,12 +29,14 @@ const Navbar = () => {
             Products
           </Link>
         )}
-        <Link
-          href="/"
+        {
+          loggedInUser && <Link
+          href="/dashboard"
           className="text-gray-600 hover:text-purple-600 p-4 px-3 sm:px-4"
         >
-          Contact
+          Admin Dashboard
         </Link>
+        }
         {loggedInUser ? (
           <Link
             href="/"

@@ -11,7 +11,6 @@ const ProductCard = ({ product }) => {
     dispatch,
   } = useCartContext();
   const handleClick = (id) => {
-    console.log(id);
     router?.push(`/products/${id}`);
   };
   return (

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { CartProvider } from "@/context/cartContext";
+import { CustomerProvider } from "@/context/customerContext";
 import { UserProvider } from "@/context/userContext";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -15,10 +16,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <UserProvider>
         <CartProvider>
-         <body className={inter.className}>
-            <Navbar />
-            {children}
-          </body>
+          <CustomerProvider>   
+            <body className={inter.className}>
+              <Navbar />
+              {children}
+            </body>
+          </CustomerProvider>
         </CartProvider>
       </UserProvider>
     </html>

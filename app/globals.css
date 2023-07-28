@@ -8,7 +8,18 @@
   }
 }
 
-
+@media (min-width: 1024px) {
+    .customerWrapper {
+      grid-template-columns: auto 300px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .customerWrapper {
+      grid-template-columns: auto 400px;
+    }
+  }
+  
 @media (min-width: 1536px) {
   .productWrapper {
     padding-left: 2rem;
