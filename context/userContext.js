@@ -1,18 +1,33 @@
-"use client"
-import { createContext, useContext, useState } from "react";
+"use client";
+import { createContext, useContext, useState, useEffect } from "react";
+
 const UserContext = createContext();
+
 export const UserProvider = ({ children }) => {
-  const [loggedInUser, setLoggedInUser] = useState(
-    JSON.parse(localStorage.getItem("loggedInUser")) || null
-  );
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
   const login = (user) => {
     setLoggedInUser(user);
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
+    }
   };
+
   const logout = () => {
     setLoggedInUser(null);
-    localStorage.removeItem("loggedInUser");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("loggedInUser");
+    }
   };
+
+  // Load from local storage during component mount
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (storedUser) {
+      setLoggedInUser(storedUser);
+    }
+  }, []);
+
   return (
     <UserContext.Provider value={{ loggedInUser, login, logout }}>
       {children}
@@ -21,5 +36,5 @@ export const UserProvider = ({ children }) => {
 };
 
 export const useUserContext = () => {
-    return useContext(UserContext);
-  };
+  return useContext(UserContext);
+};
