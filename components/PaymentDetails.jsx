@@ -1,6 +1,8 @@
+import { useCartContext } from '@/context/cartContext';
 import React from 'react';
 
 const PaymentDetails = ({ totalPrice }) => {
+  const {dispatch}=useCartContext()
     return (
         <div className="mx-auto max-w-480 overflow-hidden rounded-md border border-gray-300 bg-white p-4">
       <h4 className="mt-2 mb-8 text-xl font-bold text-center">Bill Details</h4>
@@ -33,7 +35,12 @@ const PaymentDetails = ({ totalPrice }) => {
             BDT <span className="total">{parseFloat(totalPrice)}</span>
           </p>
         </div>
-        <button className="mt-4 block w-full rounded-md bg-blue-700 p-2 text-center uppercase text-white hover:bg-blue-500">place order</button>
+        <button className="mt-4 block w-full rounded-md bg-blue-700 p-2 text-center uppercase text-white hover:bg-blue-500"  onClick={() =>
+            dispatch({
+              type: "REMOVE_CART",
+              
+            })
+          }>place order</button>
       </div>
     </div>
     );

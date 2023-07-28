@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 const page = () => {
     const {state:{cart}}=useCartContext()
       // calculate total price
-      const [total, setTotal] = useState();
+      const [total, setTotal] = useState(0);
       useEffect(() => {
         setTotal(
           (cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)).toFixed(2)

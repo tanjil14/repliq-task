@@ -1,13 +1,19 @@
-// import { useDispatch, useSelector } from "react-redux";
+"use client"
 
 import { useCartContext } from "@/context/cartContext";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const ProductCard = ({ product }) => {
+  const router=useRouter()
   const {
     state: { cart },
     dispatch,
   } = useCartContext();
+  const handleClick = (id) => {
+    console.log(id);
+    router?.push(`/products/${id}`);
+  };
   return (
     <div className="max-w-[350px] rounded-md border border-gray-300">
       <Image
@@ -17,7 +23,7 @@ const ProductCard = ({ product }) => {
         width={0}
         height={0}
         sizes="100vw"
-        style={{ width: "100%", height: "350px",objectFit:"cover" }}
+        style={{ width: "100%", height: "350px", objectFit: "cover" }}
       />
 
       <div className="p-4 space-y-2">
@@ -52,6 +58,12 @@ const ProductCard = ({ product }) => {
             Add To Cart
           </button>
         )}
+        <button
+          className="mt-4 block w-full rounded-md bg-gray-700 p-2 text-white"
+          onClick={() => handleClick(product.id)}
+        >
+          View Details
+        </button>
       </div>
     </div>
   );

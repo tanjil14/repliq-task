@@ -18,7 +18,7 @@ const products = [
     {
       id: 3,
       image: 'https://images.pexels.com/photos/904350/pexels-photo-904350.jpeg?auto=compress&cs=tinysrgb&w=600',
-      productName: 'White and Blue Floral Flap Sling Bag',
+      productName: 'White and Blue Floral Sling Bag',
       category: 'Bag',
       price: 50000,
       quantity: 8,
